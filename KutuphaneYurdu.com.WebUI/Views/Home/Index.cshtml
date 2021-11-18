@@ -1,0 +1,130 @@
+﻿@model HomeVM
+<main class="main">
+    <div class="intro-section pt-lg-2">
+        <div class="container">
+            <div class="row" style="margin-top: 2px;">
+                <div class="col-12">
+                    <div class="banner banner-big"> 
+                            <img src="/book/Banner.jpg" alt="Banner"> 
+                      
+                    </div><!-- End .banner -->
+                </div><!-- End .col-12 -->
+            </div>
+        </div><!-- End .container -->
+
+     
+    </div><!-- End .intro-section -->
+
+    <div class="bestseller-products bg-light pt-5 pb-5 mb-5">
+        <div class="block">
+            <div class="block-wrapper ">
+                <div class="container">
+                    <div class="heading heading-flex">
+                        <div class="heading-left">
+                            <h2 class="title"></h2><!-- End .title -->
+                        </div><!-- End .heading-left -->
+
+                        <div class="heading-right">
+                            <a asp-controller="book" asp-action="index" class="title-link">Daha Fazla Kitap <i class="icon-long-arrow-right"></i></a>
+                        </div><!-- End .heading-right -->
+                    </div><!-- End .header-flex -->
+
+                    <div class="owl-carousel carousel-equal-height owl-simple" data-toggle="owl"
+                         data-owl-options='{
+                                    "nav": false,
+                                    "dots": true,
+                                    "margin": 20,
+                                    "loop": false,
+                                    "responsive": {
+                                        "0": {
+                                            "items":2
+                                        },
+                                        "480": {
+                                            "items":2
+                                        },
+                                        "768": {
+                                            "items":3
+                                        },
+                                        "992": {
+                                            "items":4
+                                        },
+                                        "1440": {
+                                            "items":5
+                                        }
+                                    }
+                                }'>
+                       @foreach (Book b in Model.Books)
+                        {
+                        <div class="product">
+                            <figure class="product-media"> 
+                                    <img src="@b.Picture" alt="@b.Name" class="product-image">
+                            </figure>
+
+                            <div class="product-cat">
+                                <br />
+                                <p href="#">@b.Writer.NameSurname</p>                               
+                            </div>
+                            <h3 class="product-title">@b.Name</h3>
+                            <a asp-controller="Book" asp-action="Detail" asp-route-name="@GeneralTool.UrlConvert(b.Name)" asp-route-id="@b.ID" class="btn btn-primary btn-round">KİTAP DETAYI</a>
+
+                        </div>
+                        }                      
+                    </div><hr />
+                </div><!-- End .container -->
+            </div><!-- End .block-wrapper -->
+        </div><!-- End .block -->
+    </div><!-- End .bg-light pt-4 pb-4 -->
+
+    <div class="blog-posts bg-light pt-4 pb-4">
+        <div class="container">
+            <h2 class="title">Blog Yazılarımız</h2><!-- End .title-lg text-center -->
+
+            <div class="owl-carousel owl-simple" data-toggle="owl"
+                 data-owl-options='{
+                            "nav": false,
+                            "dots": true,
+                            "items": 3,
+                            "margin": 20,
+                            "loop": false,
+                            "responsive": {
+                                "0": {
+                                    "items":1
+                                },
+                                "600": {
+                                    "items":2
+                                },
+                                "992": {
+                                    "items":3
+                                },
+                                "1200": {
+                                    "items":4
+                                }
+                            }
+                        }'>
+                @foreach (Blog b in Model.Blogs)
+                {
+                    <article class="entry">
+                        <figure class="entry-media">
+
+                            <img style="height:150px;" src="@b.Picture" alt="@b.Title">
+                            <div class="boxInfo"><i class="far fa-clock"></i><span> @b.RecDate.ToString("dd/MM/yyyy")</span></div>
+                        </figure><!-- End .entry-media -->
+
+                        <div class="entry-body">
+                       
+                            <div class="entry-title">
+                                <h5>@b.Title</h5>
+                               
+                            </div><!-- End .entry-title -->
+
+                            <div class="entry-content">
+                                <p>@b.Description </p>
+                                <a asp-controller="Blog" asp-action="Detail" asp-route-name="@GeneralTool.UrlConvert(@b.Title)" asp-route-id="@b.ID" class="read-more">Okumaya Devam et</a>
+                            </div><!-- End .entry-content -->
+                        </div><!-- End .entry-body -->
+                    </article>
+                                }
+            </div><!-- End .owl-carousel -->
+        </div><!-- End .container -->
+    </div><!-- End .blog-posts -->
+</main>

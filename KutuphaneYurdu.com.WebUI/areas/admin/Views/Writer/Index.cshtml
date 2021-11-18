@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Writer>
+   <!-- page content -->
+<div class="right_col" role="main">
+    <div class="">
+        <div class="row" style="display: block;">
+
+            <div class="col-md-12 col-sm-12  ">
+                <div class="x_panel">
+                    <div class="x_title" style="border-bottom:none">
+                        <h2>Yazar Yönetimi</h2>
+                        <a class="btn btn-primary" style="color:#fff;float:right" asp-action="New">Yeni Kayıt</a>
+                    </div>
+                    <div class="x_content">
+                        <div class="table-responsive">
+                            <table class="table table-striped jambo_table bulk_action">
+                                <thead>
+                                    <tr class="headings">
+                                        <th class="column-title">Yazar Adı</th>
+                                        <th class="column-title">Sıra</th>
+                                        <th class="column-title">ID</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (Writer s in Model)
+                                    {
+                                        <tr>
+                                            <td><a asp-action="Edit" asp-route-id="@s.ID">@s.NameSurname</a></td>
+                                            <td>@s.DisplayIndex</td>
+                                            <td>@s.ID</td>
+                                            <td><button type="button" class="btn btn-danger" onclick="deleteBrandRecord(@s.ID);">Sil</button></td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /page content -->

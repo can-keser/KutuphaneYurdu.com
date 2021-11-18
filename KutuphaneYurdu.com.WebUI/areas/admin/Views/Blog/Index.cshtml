@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Blog>
+   <!-- page content -->
+<div class="right_col" role="main">
+    <div class="">
+        <div class="row" style="display: block;">
+
+            <div class="col-md-12 col-sm-12  ">
+                <div class="x_panel">
+                    <div class="x_title" style="border-bottom:none">
+                        <h2>Slayt Yönetimi</h2>
+                        <a class="btn btn-primary" style="color:#fff;float:right" asp-action="New">Yeni Kayıt</a>
+                    </div>
+                    <div class="x_content">
+                        <div class="table-responsive">
+                            <img class="kResim"/>
+                            <table class="table table-striped jambo_table bulk_action" onmouseout="$('.kResim').hide()">
+                                <thead>
+                                    <tr class="headings">
+                                        <th class="column-title">Blog Başlığı </th>
+                                        <th class="column-title">Blog Açıklaması </th>
+                                        <th class="column-title">Blog Detayı</th>
+                                        <th class="column-title">Kayıt Tarihi</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (Blog b in Model)
+                                    {
+                                        <tr>
+                                            <td class="hoverPicture" picture="@b.Picture"><a asp-action="Edit" asp-route-id="@b.ID">@b.Title</a></td>
+                                            <td>@b.Description</td>
+                                            <td>@b.BlogDetails</td> 
+                                            <td>@b.RecDate.ToString("dd/MM/yyyy")</td>
+                                            <td><button type="button" class="btn btn-danger" onclick="deleteSlideRecord(@b.ID);">Sil</button></td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /page content -->

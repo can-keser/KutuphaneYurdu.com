@@ -1,0 +1,90 @@
+﻿@model IEnumerable<Category>
+<header class="header header-6">
+
+    <div class="header-middle">
+        <div class="container">
+            <div class="header-left">
+                <div class="header-search header-search-extended header-search-visible d-none d-lg-block">
+                    <a href="#" class="search-toggle" role="button"><i class="icon-search"></i></a>
+                    <form action="#" method="get">
+                        <div class="header-search-wrapper search-wrapper-wide">
+                            <label for="q" class="sr-only">Search</label>
+                            <button class="btn btn-primary" type="submit"><i class="icon-search"></i></button>
+                            <input type="search" class="form-control" name="q" id="q" placeholder="Kitap ara..." required>
+                        </div><!-- End .header-search-wrapper -->
+                    </form>
+                </div><!-- End .header-search -->
+            </div>
+            <div class="header-center">
+                <a href="/" class="logo">
+                    <img src="/assets/images/logo/logo.png" alt="Kütüphaneyurdu.com Logo" width="82" height="20">
+                    <span style="color:black">KütüphaneYurdu</span>
+                </a>
+            </div><!-- End .header-left -->
+
+           
+        </div>
+    
+
+    </div><!-- End .header-middle -->
+
+    <div class="header-bottom sticky-header">
+        <div class="container">
+            <div class="header-left">
+                <nav class="main-nav">
+                    <ul class="menu sf-arrows">
+                        <li class="megamenu-container active">
+                            <a href="/">Ana Sayfa</a>
+                        </li>
+                        @foreach (Category c in Model)
+                        {
+            <li>
+                <a asp-controller="Book" asp-action="Category" asp-route-id="@c.ID" asp-route-name="@GeneralTool.UrlConvert(c.Name)">@c.Name</a>
+            </li>}
+                        <li><a asp-controller="Blog" asp-action="Index">Blog</a></li>
+
+                    </ul><!-- End .menu -->
+                </nav><!-- End .main-nav -->
+
+                <button class="mobile-menu-toggler">
+                    <span class="sr-only">Toggle mobile menu</span>
+                    <i class="icon-bars"></i>
+                </button>
+            </div><!-- End .header-left -->
+
+            <div class="header-right">
+                <i class="la la-lightbulb-o"></i>
+            </div>
+        </div><!-- End .container -->
+    </div><!-- End .header-bottom -->
+</header>
+<div class="mobile-menu-overlay"></div><!-- End .mobil-menu-overlay -->
+
+<div class="mobile-menu-container ">
+    <div class="mobile-menu-wrapper ">
+        <form action="#" method="get" class="mobile-search">
+            <label for="mobile-search" class="sr-only">Search</label>
+            <input type="search" class="form-control" name="mobile-search" id="mobile-search" placeholder="Kitap Ara..." required>
+            <button class="btn btn-primary" type="submit"><i class="icon-search"></i></button>
+        </form>
+        <div class="tab-content">
+            <div class="tab-pane fade show active" id="mobile-menu-tab" role="tabpanel" aria-labelledby="mobile-menu-link">
+                <nav class="mobile-nav">
+                    <ul class="mobile-menu">
+                        <li class="active">
+                            <a href="/">Ana Sayfa</a>
+                        </li>
+                        @foreach (Category c in Model)
+                        {
+            <li>
+                <a asp-controller="Book" asp-action="Category" asp-route-id="@c.ID" asp-route-name="@GeneralTool.UrlConvert(c.Name)">@c.Name</a>
+            </li>}
+                        <li><a asp-controller="Blog" asp-action="Index">Blog</a></li>
+                    </ul>
+                </nav><!-- End .mobile-nav -->
+            </div><!-- .End .tab-pane -->
+        </div><!-- End .tab-content -->
+
+    </div><!-- End .mobile-menu-wrapper -->
+</div><!-- End .mobile-menu-container -->
+

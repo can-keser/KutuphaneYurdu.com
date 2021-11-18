@@ -1,0 +1,92 @@
+﻿@model BookVM
+<div class="right_col" role="main">
+    <div class="">
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12 ">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Kitap Güncelle</h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <br />
+                        <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" asp-action="Update" method="post" enctype="multipart/form-data">
+                            <input asp-for="@Model.Book.ID" type="hidden" />
+                            <div class="item form-group">
+                                <label class="col-form-label col-sm-2" asp-for="@Model.Book.Name"></label>
+                                <div class="col-sm-10 ">
+                                    <input asp-for="@Model.Book.Name" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="col-form-label col-sm-2" asp-for="@Model.Book.CategoryID"></label>
+                                <div class="col-sm-10 ">
+                                    <select asp-for="@Model.Book.CategoryID" class="form-control" asp-items="@Model.Categories.Select(s=>new SelectListItem {Text=s.Name,Value=s.ID.ToString() })">
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="col-form-label col-sm-2" asp-for="@Model.Book.WriterID"></label>
+                                <div class="col-sm-10 ">
+                                    <select asp-for="@Model.Book.WriterID" class="form-control" asp-items="@Model.Writers.Select(s=>new SelectListItem {Text=s.NameSurname,Value=s.ID.ToString() })">
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="col-form-label col-sm-2" asp-for="@Model.Book.DisplayIndex"></label>
+                                <div class="col-sm-10 ">
+                                    <input asp-for="@Model.Book.DisplayIndex" class="form-control" />
+                                </div>
+                            </div>
+                        
+                            <div class="item form-group">
+                                <label class="col-form-label col-sm-2" asp-for="@Model.Book.Link"></label>
+                                <div class="col-sm-10 ">
+                                    <input asp-for="@Model.Book.Link" class="form-control" type="file" accept="application/pdf" />
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="col-form-label col-sm-2" asp-for="@Model.Book.Picture"></label>
+                                <div class="col-sm-10 ">
+                                    <input asp-for="@Model.Book.Picture" class="form-control" type="file" accept="image/png, image/gif, image/jpeg" />
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="col-form-label col-sm-2" asp-for="@Model.Book.Description"></label>
+                                <div class="col-sm-10 ">
+                                    <textarea asp-for="@Model.Book.Description" class="editor" rows="10" cols="450"></textarea>
+                                </div>
+                            </div>
+
+
+                            <div class="ln_solid"></div>
+                            <div class="item form-group">
+                                <div class="col-sm-2">
+
+                                </div>
+                                <div class="col-sm-10">
+                                    <button type="submit" class="btn btn-success">Güncelle</button>
+                                    <a class="btn btn-primary" asp-action="Cancel">İptal</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+@section customScript{
+    <script src="/ckeditor/ckeditor.js"></script>
+    <script>
+        $(".editor").each(
+            function () {
+                CKEDITOR.replace($(this).attr("id"));
+            }
+        );
+    </script>
+}
+<!-- /page content -->

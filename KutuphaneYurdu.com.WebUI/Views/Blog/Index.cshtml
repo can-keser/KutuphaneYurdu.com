@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Blog>
+<main class="main">
+    <div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
+        <div class="container">
+            <nav aria-label="breadcrumb" class="breadcrumb-nav mb-3">
+                <div class="container">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Ana Sayfa</a></li>
+                        <li class="breadcrumb-item active"><a asp-controller="Blog" asp-action="Index">Blog</a></li>
+                    </ol>
+                </div><!-- End .container -->
+            </nav>
+            <h1 class="page-title">Blog Yazılarımız</h1>
+        </div><!-- End .container -->
+    </div><!-- End .page-header -->
+<!-- End .breadcrumb-nav -->
+
+    <div class="page-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    @foreach (Blog b in Model)
+                    {
+                        <article class="entry">
+                            <div class="entry-body">
+                                <div class="entry-title">
+                                    <h3>@b.Title ?</h3>
+                                    <div class="boxInfo"><i class="far fa-clock"></i><span> @b.RecDate.ToString("dd/MM/yyyy")</span></div></div>
+                                <div class="entry-media">
+                                    <img style="height:400px;" src="@b.Picture" alt="@b.Title">
+                                </div><!-- End .entry-media -->
+                                <div class="entry-content">
+                                    <p>@b.Description</p>
+                                    <a asp-controller="Blog" asp-action="Detail" asp-route-name="@GeneralTool.UrlConvert(@b.Title)" asp-route-id="@b.ID" class="read-more">Okumaya Devam et</a>
+                                </div>
+                            </div>
+                        </article>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

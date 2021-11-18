@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31424.327
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KutuphaneYurdu.com.API", "KutuphaneYurdu.com.API\KutuphaneYurdu.com.API.csproj", "{E663F5BF-79C2-4930-A341-B76DB6DA8E84}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KutuphaneYurdu.com.BL", "KutuphaneYurdu.com.BL\KutuphaneYurdu.com.BL.csproj", "{9D884A95-183B-451F-83B1-659135B05AD5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KutuphaneYurdu.com.DAL", "KutuphaneYurdu.com.DAL\KutuphaneYurdu.com.DAL.csproj", "{0065BFB4-1333-4EB1-A7EC-8088A7B43054}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KutuphaneYurdu.com.WebUI", "KutuphaneYurdu.com.WebUI\KutuphaneYurdu.com.WebUI.csproj", "{1426F12D-2382-44CC-BC33-D3302903D2CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KutuphaneYurdu.com.Tools", "KutuphaneYurdu.com.Tools\KutuphaneYurdu.com.Tools.csproj", "{80797BE9-A40B-4FA5-BD5D-145289F8FF76}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E663F5BF-79C2-4930-A341-B76DB6DA8E84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E663F5BF-79C2-4930-A341-B76DB6DA8E84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E663F5BF-79C2-4930-A341-B76DB6DA8E84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E663F5BF-79C2-4930-A341-B76DB6DA8E84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D884A95-183B-451F-83B1-659135B05AD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D884A95-183B-451F-83B1-659135B05AD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D884A95-183B-451F-83B1-659135B05AD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D884A95-183B-451F-83B1-659135B05AD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0065BFB4-1333-4EB1-A7EC-8088A7B43054}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0065BFB4-1333-4EB1-A7EC-8088A7B43054}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0065BFB4-1333-4EB1-A7EC-8088A7B43054}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0065BFB4-1333-4EB1-A7EC-8088A7B43054}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1426F12D-2382-44CC-BC33-D3302903D2CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1426F12D-2382-44CC-BC33-D3302903D2CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1426F12D-2382-44CC-BC33-D3302903D2CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1426F12D-2382-44CC-BC33-D3302903D2CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80797BE9-A40B-4FA5-BD5D-145289F8FF76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80797BE9-A40B-4FA5-BD5D-145289F8FF76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80797BE9-A40B-4FA5-BD5D-145289F8FF76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80797BE9-A40B-4FA5-BD5D-145289F8FF76}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {27659067-F6E4-4D61-996E-A502D1BB675B}
+	EndGlobalSection
+EndGlobal

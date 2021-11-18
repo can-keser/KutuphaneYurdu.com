@@ -1,0 +1,94 @@
+﻿@model BlogVM
+<main class="main">
+    <div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
+        <div class="container">
+            <nav aria-label="breadcrumb" class="breadcrumb-nav mb-3">
+                <div class="container">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Ana Sayfa</a></li>
+                        <li class="breadcrumb-item active"><a asp-controller="Blog" asp-action="Index">Blog</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">@Model.Blog.Title</li>
+                    </ol>
+                </div><!-- End .container -->
+            </nav>
+            <h1 class="page-title">@Model.Blog.Title?</h1>
+        </div><!-- End .container -->
+    </div>
+
+    <div class="page-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <article class="entry single-entry">
+                        <figure class="entry-media">
+                            <img src="@Model.Blog.Picture" alt="@Model.Blog.Title">
+                            <div class="entry-title">
+                                <div class="boxInfo"><i class="far fa-clock"></i><span> @Model.Blog.RecDate.ToString("dd/MM/yyyy")</span></div>
+                            </div><!-- End .entry-title -->
+                        </figure><!-- End .entry-media -->
+
+                        <div class="entry-body">
+
+                          
+                            <div class="entry-content editor-content">
+                                <p>@Model.Blog.BlogDetails</p>
+                            </div><!-- End .entry-content -->
+
+
+                        </div><!-- End .entry-body -->
+
+                        <div class="blog-posts bg-light pt-4 pb-4">
+                            <div class="container">
+                                <h2 class="title">Diğer Yazılarımız</h2><!-- End .title-lg text-center -->
+
+                                <div class="owl-carousel owl-simple" data-toggle="owl"
+                                     data-owl-options='{
+                            "nav": false,
+                            "dots": true,
+                            "items": 3,
+                            "margin": 20,
+                            "loop": false,
+                            "responsive": {
+                                "0": {
+                                    "items":1
+                                },
+                                "600": {
+                                    "items":2
+                                },
+                                "992": {
+                                    "items":3
+                                },
+                                "1200": {
+                                    "items":4
+                                }
+                            }
+                        }'>
+                                    @foreach (Blog b in Model.Blogs)
+                                    {
+                        <article class="entry">
+                            <figure class="entry-media">
+
+                                <img style="height:150px;" src="@b.Picture" alt="@b.Title">
+                                <div class="boxInfo"><i class="far fa-clock"></i><span> @b.RecDate.ToString("dd/MM/yyyy")</span></div>
+                            </figure><!-- End .entry-media -->
+
+                            <div class="entry-body">
+
+                                <div class="entry-title">                                  
+                                    <a asp-controller="Blog" asp-action="Detail" asp-route-name="@GeneralTool.UrlConvert(@b.Title)" asp-route-id="@b.ID">@b.Title?</a>
+
+                                </div><!-- End .entry-title -->     
+                            </div><!-- End .entry-body -->
+                        </article>}
+                                </div><!-- End .owl-carousel -->
+                            </div><!-- End .container -->
+                        </div><!-- End .blog-posts -->
+
+</article>
+</div><!-- End .col-lg-9 -->
+
+
+            </div><!-- End .row -->
+        </div><!-- End .container -->
+    </div><!-- End .page-content -->
+</main>

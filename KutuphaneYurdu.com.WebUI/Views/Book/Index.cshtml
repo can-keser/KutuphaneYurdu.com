@@ -1,0 +1,84 @@
+﻿@model IEnumerable<Book>
+<main class="main">
+    <div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
+        <nav aria-label="breadcrumb" class="breadcrumb-nav border-0 mb-0">
+            <div class="container d-flex align-items-center">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Ana Sayfa</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"><a asp-controller="Book" asp-action="Index">Kitaplar</a></li>
+                </ol>
+
+            </div><!-- End .container -->
+         
+        </nav>
+    </div><!-- End .page-header -->
+  
+    <div class="page-content">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-12">
+                   
+
+                    <div class="toolbox">
+                        <div class="toolbox-right">
+                            <label for="sortby">Sıralama:</label>
+                            <div class="select-custom">
+                                <select name="sortby" id="sortby" class="form-control">
+                                    <option value="date" selected="selected">Eklenme Tarihi</option>
+                                    <option value="a-z">İsme göre A-Z  </option>
+                                    <option value="z-a">İsme göre Z-A </option>
+                                </select>
+                            </div>
+                            <div class="toolbox-sort">
+
+                                <label for="sortby">Kategori:</label>
+                                <div class="select-custom">
+                                    <select name="sortby" id="sortby" class="form-control">
+                                        <option value="popularity" selected="selected">Seçiniz...</option>
+                                        @foreach (Book b in Model)
+                                        {
+                                            <option value="rating">@b.Category.Name</option>
+
+                                        }
+                                    </select>
+                                </div>
+
+
+                            </div><!-- End .toolbox-sort -->
+
+                        </div><!-- End .toolbox-right -->
+                    </div><!-- End .toolbox -->
+
+                    <div class="products mb-3">
+                        <div class="row justify-content-center">
+                            @foreach (Book b in Model)
+                            {
+                                <div class="col-6 col-md-4 col-lg-4">
+                                    <div class="product">
+                                        <figure class="product-media">
+                                            <img src="@b.Picture" alt="@b.Name" class="product-image">
+                                        </figure>
+
+                                        <div class="product-cat">
+                                            <br />
+                                            <p href="#">@b.Writer.NameSurname</p>
+                                        </div>
+                                        <h3 class="product-title">@b.Name</h3>
+                                        <a asp-controller="Book" asp-action="Detail" asp-route-name="@GeneralTool.UrlConvert(b.Name)" asp-route-id="@b.ID" class="btn btn-primary btn-round">KİTAP DETAYI</a>
+
+                                    </div>
+                                </div>
+                            }
+
+
+                        </div><!-- End .row -->
+                    </div><!-- End .products -->
+
+
+                </div><!-- End .col-lg-9 -->
+           
+            </div><!-- End .row -->
+        </div><!-- End .container -->
+    </div><!-- End .page-content -->
+</main>
